@@ -14,4 +14,10 @@ router.post("/create", (req, res) => {
     res.send("Movie should be created!");
 });
 
+router.get("/movies/:movieId", (req, res) => {
+    // const id = req.params.movieId;
+
+    res.render("details");
+});
+
 module.exports = router;
