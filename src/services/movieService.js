@@ -10,6 +10,11 @@ const movies = [
       }
 ];
 
+exports.getAll = () => { 
+    // return [...movies];
+    return movies.slice();
+};
+
 exports.create = (movieData) => {
     console.log(movieData);
     movies.push(movieData);
