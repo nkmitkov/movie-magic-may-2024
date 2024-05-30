@@ -11,7 +11,7 @@ router.post("/create", (req, res) => {
 
     movieService.create(newMovie); 
     
-    res.send("Movie should be created!");
+    res.redirect("/");
 });
 
 router.get("/movies/:movieId", (req, res) => {
