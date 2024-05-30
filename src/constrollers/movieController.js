@@ -15,9 +15,10 @@ router.post("/create", (req, res) => {
 });
 
 router.get("/movies/:movieId", (req, res) => {
-    // const id = req.params.movieId;
+    const movieId = req.params.movieId;
+    const movie = movieService.getById(movieId);
 
-    res.render("details");
+    res.render("details", { movie });
 });
 
 module.exports = router;

@@ -16,6 +16,12 @@ exports.getAll = () => {
     return movies.slice();
 };
 
+exports.getById = (id) => { 
+    const movie = movies.find((movie) => movie._id == id);
+
+    return movie;
+};
+
 exports.create = (movieData) => {
     movieData._id = movies[movies.length - 1] + 1;
     movies.push(movieData);
