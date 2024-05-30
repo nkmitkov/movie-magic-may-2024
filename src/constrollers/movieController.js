@@ -18,6 +18,9 @@ router.get("/movies/:movieId", (req, res) => {
     const movieId = req.params.movieId;
     const movie = movieService.getById(movieId);
 
+    // todo: This is not perfect, use handlebars helpers
+    movie.ratingArr = new Array(Number(movie.rating)).fill(true);
+    
     res.render("details", { movie });
 });
 
