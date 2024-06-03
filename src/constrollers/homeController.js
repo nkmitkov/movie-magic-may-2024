@@ -20,11 +20,11 @@ router.get("/search", (req, res) => {
     res.render("search", { movies, title, genre, year });
 });
 
-router.post("/search", (req, res) => {
-    const searchInfo = req.body;
+// router.post("/search", (req, res) => {
+//     const searchInfo = req.body;
 
-    res.end();
-});
+//     res.end();
+// });
 
 router.get("/404", (req, res) => {
     res.render("404");
