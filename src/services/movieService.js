@@ -1,3 +1,5 @@
+const Movie = require("../models/Movie");
+
 const movies = [
     {
         _id: '1',
@@ -50,7 +52,9 @@ exports.getById = (id) => {
     return movie;
 };
 
-exports.create = (movieData) => {
-    movieData._id = movies[movies.length - 1]._id + 1;
-    movies.push(movieData);
+exports.create = async (movieData) => {
+    // return Movie.create(movieData);
+
+    const result = await Movie.create(movieData);
+    return result;
 };
