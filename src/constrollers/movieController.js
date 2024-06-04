@@ -3,7 +3,7 @@ const router = require("express").Router();
 const movieService = require("../services/movieService");
 
 router.get("/create", (req, res) => {
-    res.render("create");
+    res.render("movie/create");
 });
 
 router.post("/create", async (req, res) => {
@@ -15,11 +15,11 @@ router.post("/create", async (req, res) => {
         res.redirect("/");
     } catch (error) {
         console.log(error.message);
-        res.redirect("/create");   
+        res.redirect("movie/create");   
     }
 });
 
-router.get("/movies/:movieId", async (req, res) => {
+router.get("/:movieId", async (req, res) => {
     const movieId = req.params.movieId;
     const movie = await movieService.getById(movieId).lean();
 
