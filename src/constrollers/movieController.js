@@ -23,7 +23,8 @@ router.post("/create", async (req, res) => {
 router.get("/:movieId", async (req, res) => {
     const movieId = req.params.movieId;
     const movie = await movieService.getById(movieId).lean();
-
+    // const casts = await castService.getByCastIds(movie.casts).lean();
+   
     // todo: This is not perfect, use handlebars helpers
     movie.ratingArr = new Array(Number(movie.rating)).fill(true);
     
