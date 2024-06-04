@@ -5,7 +5,7 @@ const movieController = require("./constrollers/movieController");
 const castController = require("./constrollers/castController");
 
 router.use(homeController);
-router.use("/movie", movieController);
+router.use("/movies", movieController);
 router.use("/cast", castController);
 
 router.get("*", (req, res) => {

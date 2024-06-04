@@ -26,7 +26,13 @@ router.get("/:movieId", async (req, res) => {
     // todo: This is not perfect, use handlebars helpers
     movie.ratingArr = new Array(Number(movie.rating)).fill(true);
     
-    res.render("details", { movie });
+    res.render("movie/details", { movie });
+});
+
+router.get("/:movieId/attach", (req, res) => {
+    const movieId = req.params.movieId;
+
+    res.render("movie/attach");
 });
 
 module.exports = router;
