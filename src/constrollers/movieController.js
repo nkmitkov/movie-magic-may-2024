@@ -19,9 +19,9 @@ router.post("/create", async (req, res) => {
     }
 });
 
-router.get("/movies/:movieId", (req, res) => {
+router.get("/movies/:movieId", async (req, res) => {
     const movieId = req.params.movieId;
-    const movie = movieService.getById(movieId);
+    const movie = await movieService.getById(movieId).lean();
 
     // todo: This is not perfect, use handlebars helpers
     movie.ratingArr = new Array(Number(movie.rating)).fill(true);
