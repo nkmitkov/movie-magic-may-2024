@@ -27,12 +27,12 @@ router.post("/create", isAuth, async (req, res) => {
 router.get("/:movieId", async (req, res) => {
     const movieId = req.params.movieId;
     const movie = await movieService.getById(movieId).lean();
-    // const casts = await castService.getByCastIds(movie.casts).lean();
-   
+    const isOwner = movie.owner == req.user._id; // movie.owner.toString() === req.user._id / movie.owner === mongoose.Types.ObjectId(req.user._id)
+    
     // todo: This is not perfect, use handlebars helpers
     movie.ratingArr = new Array(Number(movie.rating)).fill(true);
     
-    res.render("movie/details", { movie });
+    res.render("movie/details", { movie, isOwner });
 });
 
 router.get("/:movieId/attach", isAuth, async (req, res) => {

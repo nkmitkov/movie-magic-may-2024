@@ -1,33 +1,35 @@
 <section id="details-page">
     <div class="main_card">
-        {{#with movie}}
         <div class="card_left">
             <div class="card_datails">
 
-                <h1>{{title}}</h1>
+                <h1>{{movie.title}}</h1>
                 <div class="card-movie">
                     <div class="first-info">
-                        <p class="card-genre">Genre: {{genre}}</p>
-                        <p class="card-director">Directror: {{director}}</p>
+                        <p class="card-genre">Genre: {{movie.genre}}</p>
+                        <p class="card-director">Directror: {{movie.director}}</p>
                     </div>
                     <div class="second-info">
-                        <p class="card-year">Year: {{year}}</p>
-                        <p class="card-ranking">Rating: <span id="stars"> {{#each ratingArr}}&#x2605; {{else}} No Ratings Yet {{/each}} </span></p>
+                        <p class="card-year">Year: {{movie.year}}</p>
+                        <p class="card-ranking">Rating: <span id="stars"> {{#each movie.ratingArr}}&#x2605; {{else}} No Ratings Yet {{/each}} </span></p>
                     </div>
 
                 </div>
 
-                <p class="disc">Description: {{description}}</p>
+                <p class="disc">Description: {{movie.description}}</p>
             </div>
+    
+            {{#if isOwner}}
             <div class="details-btn">
-                <a href="/movies/{{_id}}/edit" id="edit-button">Edit</a>
-                <a href="/movies/{{_id}}/delete" id="delete-button">Delete</a>
+                <a href="/movies/{{movie._id}}/edit" id="edit-button">Edit</a>
+                <a href="/movies/{{movie._id}}/delete" id="delete-button">Delete</a>
             </div>
+            {{/if}}
+
         </div>
         <div class="card_right">
-            <img src={{imageUrl}} alt="image">
+            <img src={{movie.imageUrl}} alt="image">
         </div>
-        {{/with}}
 
     </div>
 
