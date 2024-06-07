@@ -34,12 +34,16 @@ const movieSchema = new mongoose.Schema({
     imageUrl: {
         type: String,
         required: true,
-        match: /^https?:\/\//
+        match: /^https?:\/\//,
     },
     casts: [{
         type: mongoose.Types.ObjectId,
-        ref: "Cast"
+        ref: "Cast",
     }],
+    owner: {
+        type: mongoose.Types.ObjectId,
+        ref: "User",
+    }
 })
 
 const Movie = mongoose.model("Movie", movieSchema);
