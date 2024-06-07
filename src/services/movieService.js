@@ -31,6 +31,8 @@ exports.getById = (id) => Movie.findById(id).populate("casts");
 
 exports.create = (movieData) => Movie.create(movieData);
 
+exports.edit = (movieId, editedMovie) => Movie.findByIdAndUpdate(movieId, editedMovie);
+
 exports.attach = async (movieId, castId) => {
     // todo: Validate castsId if exists
     // todo: Validate if cast is already added
@@ -49,3 +51,5 @@ exports.attach = async (movieId, castId) => {
 
     return movie;
 };
+
+exports.delete = (movieId) => Movie.findByIdAndDelete(movieId);
