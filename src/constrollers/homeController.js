@@ -20,12 +20,6 @@ router.get("/search", async (req, res) => {
     res.render("home/search", { movies, title, genre, year });
 });
 
-// router.post("/search", (req, res) => {
-//     const searchInfo = req.body;
-
-//     res.end();
-// });
-
 router.get("/404", (req, res) => {
     res.render("home/404");
 });
