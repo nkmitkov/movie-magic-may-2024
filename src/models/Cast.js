@@ -4,20 +4,23 @@ const castSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
+        minLength: [5, "Name must be at least 5 characters"],
     },
     age: {
         type: Number,
         required: true,
         max: 120,
-        min: 14,
+        min: 1,
     },
     born: {
         type: String,
         required: true,
+        minLength: [10, "Born must be at least 10 characters"],
     },
     nameInMovie: {
         type: String,
         required: true,
+        minLength: [5, "Name In Movie must be at least 5 characters"],
     },
     castImage: {
         type: String,
