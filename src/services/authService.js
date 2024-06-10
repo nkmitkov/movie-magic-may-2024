@@ -5,14 +5,14 @@ const jwt = require("../lib/jwt");
 const { SECRET } = require("../config/config");
 
 // todo: check if user exists
-exports.register = (userData) => {
-    const user = User.findOne({ email: userData.email });
+exports.register = async (userData) => {
+    const user = await User.findOne({ email: userData.email });
 
     if (user) {
         throw new Error("Email already exists");
     }
  
-    User.create(userData)
+    return User.create(userData)
 };
 
 exports.login = async (email, password) => {
