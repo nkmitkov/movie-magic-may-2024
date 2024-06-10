@@ -12,8 +12,8 @@ router.post("/register", async (req, res) => {
         await authService.register(userData);
         
         res.redirect("/auth/login");
-    } catch (error) {
-        
+    } catch (err) {
+        res.render("auth/register", { error: err.message});
     }
 
 });
