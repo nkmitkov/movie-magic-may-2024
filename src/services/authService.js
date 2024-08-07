@@ -7,7 +7,7 @@ const { SECRET } = require("../config/config");
 // todo: check if user exists
 exports.register = async (userData) => {
     const user = await User.findOne({ email: userData.email });
-
+    
     if (user) {
         throw new Error("Email already exists");
     }

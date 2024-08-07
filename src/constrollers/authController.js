@@ -8,6 +8,7 @@ router.get("/register", (req, res) => {
     res.render("auth/register");
 });
 
+// validate(User) gives me troubles and on every error redirects to 404
 router.post("/register", validate(User), async (req, res) => {
     const userData = req.body;
 
